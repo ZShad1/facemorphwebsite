@@ -1,0 +1,54 @@
+{% extends "face_morph_app/base.html" %}
+{% block content %}
+
+
+<h2>Upload</h2>
+<form method="POST" enctype="multipart/form-data" action="{% url 'result' %}">
+  {% csrf_token %}
+  <label class="waves-effect waves-light btn-large"><i class="material-icons">photo_size_select_actual</i>
+    <input type="file" name="document">
+  </label>
+  <label class="waves-effect waves-light btn-large"><i class="material-icons">file_upload</i>
+    <input type="submit" name="uploadPicture">
+  </label>
+
+{% if url %}
+  <p>Uploaded file: <a href="{{ url }}">{{ url }}</a></p>
+{% endif %}
+
+<p id = "celebs"> {{celebs|safe}}</p>
+
+
+
+  <div class="row">
+    <div class="col s12">
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">textsms</i>
+          <input type="text" id="autocomplete-input" name = "autocomplete-input" class="autocomplete">
+          <label for="autocomplete-input">Celebrity Search</label>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script src="static/face_morph_app/js/materalize.js"></script>
+
+
+  {% csrf_token %}
+
+  <input type="text" name="celebselect0" id="celebselect0" tabindex="-1" >
+  <input type="text" name="celebselect1" id="celebselect1" tabindex="-1" >
+  <input type="text" name="celebselect2" id="celebselect2" tabindex="-1" >
+  <input type="text" name="celebselect3" id="celebselect3" tabindex="-1" >
+  <input type="text" name="celebselect4" id="celebselect4" tabindex="-1" >
+
+</form>
+
+<form method="POST" enctype="multipart/form-data" action="{% url 'result' %}">
+    <input type="submit" id ="sendNames" name="sendNames">
+</form>
+
+{% endblock content %}
+

@@ -1,0 +1,23 @@
+  body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+
+input[type="file"], input[name="uploadPicture"] {
+    display: none;
+}
+
+
+p[id="celebs"] {
+    font-size:0;
+}
+
+input[name="celebselect0"],input[name="celebselect1"], input[name="celebselect2"], input[name="celebselect3"], input[name="celebselect4"] {
+    pointer-events: none;
+    border-bottom: none!important;
+}
