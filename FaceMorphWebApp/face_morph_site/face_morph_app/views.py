@@ -4,7 +4,7 @@ from django.core.files.storage import FileSystemStorage
 import cv2
 import os
 import json
-#from . import faceMorph
+from . import faceMorph
 
 def home(request):
     context = {}
@@ -36,7 +36,8 @@ def result(request):
         celebNames = [request.POST["celebselect0"], request.POST["celebselect1"], request.POST["celebselect2"],
                       request.POST["celebselect3"], request.POST["celebselect4"]]
 
-        faceMorph.run(celebNames)
+        context['morphimage'] = faceMorph.run(celebNames)
+        context['celebs'] = celebNames
 
     return render(request,"face_morph_app/result.html", context)
 

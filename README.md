@@ -15,3 +15,11 @@ The project has users upload or take a picture. Then, they select 1-5 celebritie
 	b. For those who didn't have an image, I removed them from the list
 3. The framework for the website is Django. No practical reason in choosing this. I simply chose it because I know Python and didn't know JavaScript.
 4. I used Materialze as the front-end framework
+
+
+TO DO LIST:
+-add buttons to remove selected celebrity
+-display image on result page
+-remove browser auto fill
+-design the result page
+-clean up celebrity list (a lot of duplicate names)

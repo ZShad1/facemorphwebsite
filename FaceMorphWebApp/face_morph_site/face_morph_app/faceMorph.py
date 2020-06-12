@@ -203,52 +203,37 @@ def warpTriangle(img1, img2, t1, t2) :
 
     img2[r2[1]:r2[1]+r2[3], r2[0]:r2[0]+r2[2]] = img2[r2[1]:r2[1]+r2[3], r2[0]:r2[0]+r2[2]] + img2Rect
 
-def searchCelebs(celebNames):
-    S = requests.Session()
-
-    URL = "https://en.wikipedia.org/w/api.php"
-
-  # if random
-  #  file_path = os.path.join(os.path.dirname(__file__), "celebnames.txt")
-  #  namesFile = open(file_path,"r",encoding="utf-8")
-  #  namesLines = namesFile.readlines() # lots of memory is wasted here > find a way to read an individual line
-  #  randomNumber = random.randint(1, len(namesLines))
-
-    celebPictures = []
-    for name in celebNames:
-
-    PARAMS = {
-         "action": "query",
-         "format": "json",
-         "titles": namesLines[randomNumber].strip("\n"),
-         "prop": "pageimages",
-         "piprop": "original"
-     }
-
-
-    R = S.get(url=URL, params=PARAMS)
-
-    DATA = R.json()
-
-
-    x = DATA["query"]["pages"]
-
-    for a in x:
-        url = (x[a]["original"]["source"])
-
-    resp = urllib.request.urlopen(url)
-    image = np.asarray(bytearray(resp.read()), dtype="uint8")
-    image = cv2.imdecode(image, cv2.IMREAD_COLOR)
 
 def run(celebNames):
 
-    # the path where the pictures are saved
     path = "face_morph_app/images/"
 
-    celebImages = searchCelebs(celebNames)
-
     images = readPictures(path)
-    images.append(image)
+
+    file_path = os.path.join(os.path.dirname(__file__), "celebs.txt")
+    namesFile = open(file_path,"r",encoding="utf-8")
+
+    celebsDict = {}
+
+    for line in namesFile:
+        line = line.split(":", 1)
+        celebsDict[line[0]] = line[1]
+
+    # the path where the pictures are saved
+
+    celebImages = []
+
+
+    for name in celebNames:
+        if name != "":
+            url = celebsDict[name]
+
+            resp = urllib.request.urlopen(url)
+            image = np.asarray(bytearray(resp.read()), dtype="uint8")
+            image = cv2.imdecode(image, cv2.IMREAD_COLOR)
+
+            images.append(image)
+
 
     containerList = landmarkOfImages(images)
 
@@ -336,8 +321,5 @@ def run(celebNames):
 
     # Divide by numImages to get average
     outputImg = outputImg / len(images)
-    cv2.imshow('image', outputImg)
-    cv2.waitKey(0)
-    #return outputImg
-    # Display result
+    return outputImg
 
