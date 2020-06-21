@@ -1,9 +1,10 @@
 {% extends "face_morph_app/base.html" %}
 {% block content %}
+{% load static %}
 
 <p> {{celebs}}</p>
 
-<img src={{morphimage}}>
+<img class = "materialboxed" width = 500 height = 500 src="{% static 'face_morph_app/images/' %}{{ morphimage}}">
 
 
 {% endblock content %}

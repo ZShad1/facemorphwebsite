@@ -11,13 +11,45 @@
 input[type="file"], input[name="uploadPicture"] {
     display: none;
 }
+label[id = "submitButton"] {
+    position:absolute;
+    left:75%;
+    top:50%;
 
+}
 
 p[id="celebs"] {
     font-size:0;
 }
-
+h2[id = "websiteheading"] {
+    text-align:center;
+}
+table[id = "celebtable"] {
+    margin-left:auto;
+    margin-right:auto;
+}
 input[name="celebselect0"],input[name="celebselect1"], input[name="celebselect2"], input[name="celebselect3"], input[name="celebselect4"] {
     pointer-events: none;
     border-bottom: none!important;
+    visibility = hidden;
+}
+
+button[id = "removeceleb0"] {
+    visibility: hidden;
+}
+
+button[id = "removeceleb1"] {
+    visibility: hidden;
+}
+
+button[id = "removeceleb2"] {
+    visibility: hidden;
+}
+
+button[id = "removeceleb3"] {
+    visibility: hidden;
+}
+
+button[id = "removeceleb4"] {
+    visibility: hidden;
 }

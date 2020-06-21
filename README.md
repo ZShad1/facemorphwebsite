@@ -37,4 +37,4 @@ TO DO LIST:
 
 -design the result page
 
--clean up celebrity list (a lot of duplicate names)
+-clean up celebrity list (a lot of duplicate names in txt file)

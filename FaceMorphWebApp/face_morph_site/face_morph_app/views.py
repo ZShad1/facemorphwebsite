@@ -5,6 +5,8 @@ import cv2
 import os
 import json
 from . import faceMorph
+from PIL import Image
+
 
 def home(request):
     context = {}
@@ -18,25 +20,24 @@ def home(request):
         name = line[0].strip("\n")
         url = line[1].strip("\n")
         context['celebs'][name] = url
-    print(len(context['celebs']))
     context['celebs'] = json.dumps(context['celebs'])
 
     return render(request, "face_morph_app/home.html", context)
 
 def result(request):
     context = {}
-
+    print(request.POST)
     if request.method == 'POST' and 'uploadPicture' in request.POST:
 
         uploaded_file = request.FILES['document']
         fs = FileSystemStorage()
         fileName = fs.save(uploaded_file.name, uploaded_file)
         context['url'] = fs.url(fileName)
-
         celebNames = [request.POST["celebselect0"], request.POST["celebselect1"], request.POST["celebselect2"],
                       request.POST["celebselect3"], request.POST["celebselect4"]]
 
-        context['morphimage'] = faceMorph.run(celebNames)
+
+        context['morphimage'] = faceMorph.run(celebNames, fileName)
         context['celebs'] = celebNames
 
     return render(request,"face_morph_app/result.html", context)

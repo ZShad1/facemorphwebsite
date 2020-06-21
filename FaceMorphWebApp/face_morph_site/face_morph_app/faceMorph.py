@@ -35,17 +35,17 @@ def similarityTransform(inPoints, outPoints) :
     return tform[0]
 
 
-def readPictures(path):
+def readPictures(path, name):
     fileNames = os.listdir(path = path)
     images = []
+
     for file in fileNames:
-        if file.endswith(".jpg") or file.endswith(".jpeg"):
+        if file == name:
             imagePath = path + file
 
             # read the image
-            tempImage = cv2.imread(imagePath)
-
-            images.append(tempImage)
+            image = cv2.imread(imagePath)
+            images.append(image)
 
 
     return images
@@ -71,6 +71,7 @@ def landmarkOfImages(images):
     for image in images:
 
         rectImages.append(detector(image,0)) # if multiple faces are detected, detctor() returns multiply lists
+
         if ((len(rectImages[len(rectImages) -1])) == 1): # if only one face is detected in the picture, add the image directly to the list
             returnImages.append(image)
         else: # if more than one face is detected, we have to 'cut' to save n number of images, where n is the number of faces in the image
@@ -204,11 +205,11 @@ def warpTriangle(img1, img2, t1, t2) :
     img2[r2[1]:r2[1]+r2[3], r2[0]:r2[0]+r2[2]] = img2[r2[1]:r2[1]+r2[3], r2[0]:r2[0]+r2[2]] + img2Rect
 
 
-def run(celebNames):
+def run(celebNames, userPictureName):
 
     path = "face_morph_app/images/"
 
-    images = readPictures(path)
+    images = readPictures(path,userPictureName)
 
     file_path = os.path.join(os.path.dirname(__file__), "celebs.txt")
     namesFile = open(file_path,"r",encoding="utf-8")
@@ -221,8 +222,6 @@ def run(celebNames):
 
     # the path where the pictures are saved
 
-    celebImages = []
-
 
     for name in celebNames:
         if name != "":
@@ -231,7 +230,6 @@ def run(celebNames):
             resp = urllib.request.urlopen(url)
             image = np.asarray(bytearray(resp.read()), dtype="uint8")
             image = cv2.imdecode(image, cv2.IMREAD_COLOR)
-
             images.append(image)
 
 
@@ -241,9 +239,8 @@ def run(celebNames):
     images = containerList[1]
 
 
-    for i in range (len(images)):
+    for i in range (0, len(images)):
         images[i] = np.float32(images[i])/255.0
-
 
     # dimensions of output image, used to standardize input images to the same size
     h = 600
@@ -321,5 +318,13 @@ def run(celebNames):
 
     # Divide by numImages to get average
     outputImg = outputImg / len(images)
-    return outputImg
+    outputImg = np.float32(outputImg) * 255.0
+
+    path = "face_morph_app/static/face_morph_app/images"
+    numberofimages = len(os.listdir(path = path)) # use this for naming convention
+
+    morphName = "image" + str(numberofimages) + ".jpg"
+    cv2.imwrite(os.path.join(path, morphName), outputImg)
+
+    return morphName
 
