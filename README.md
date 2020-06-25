@@ -29,12 +29,13 @@ The project has users upload or take a picture. Then, they select 1-5 celebritie
 
 TO DO LIST:
 
--add buttons to remove selected celebrity
 
--display image on result page
+-add descriptions for celebs
 
--remove browser auto fill
+-line up remove button and names
 
--design the result page
+-fill up top left part of the screen
 
--clean up celebrity list (a lot of duplicate names in txt file)
+-loading bar
+
+-display picture and names in result page
