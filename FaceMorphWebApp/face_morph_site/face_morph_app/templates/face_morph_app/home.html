@@ -10,58 +10,113 @@
 
 <p id = "celebs"> {{celebs|safe}}</p>
 
+  <label id = "fileInput" class="waves-effect waves-light btn-large cyan accent-4"><i class="material-icons" style = "font-size: 70px">photo_size_select_actual</i>
+    <input type="file" id ="document" name="document" accept = "image/x-png,image/jpeg,image/jpg">
+  </label>
+
+  <label id = "submitButton" class="waves-effect btn-block waves-light disabled btn-floating red "><i class="material-icons" style = "font-size: 100px">arrow_forward</i>
+    <input type="submit" name="uploadPicture">
+  </label>
 
 
   <div class="row">
     <div class="col s12">
-      <div class="row">
-        <div class="input-field col s12">
+      <div id = "inputfieldrow" class="row">
+        <div class="input-field col s3">
           <i class="material-icons prefix">textsms</i>
           <input type="text" id="autocomplete-input" name = "autocomplete-input" class="autocomplete" autocomplete="off">
           <label for="autocomplete-input">Celebrity Search</label>
-
         </div>
       </div>
     </div>
   </div>
-  
 
-  <table id = "celebtable" class = "highlight striped center" style = "width: 400px" >
-    <thead>
-    <tr>
-      <th class ="center" style = "text-align:center"> Selected Celebrities</th>
-    </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><input type="text" name="celebselect0" id="celebselect0" tabindex="-1"></td>
-        <td><button type = "button" class="btn-floating btn-small red" id = "removeceleb0"><i class="material-icons">remove</i></button></td>
-      </tr>
-      <tr>
-        <td><input type="text" name="celebselect1" id="celebselect1" tabindex="-1"></td>
-        <td><button type = "button" class="btn-floating btn-small red" id = "removeceleb1"><i class="material-icons">remove</i></button></td>
-      </tr>
-      <tr>
-        <td><input type="text" name="celebselect2" id="celebselect2" tabindex="-1"></td>
-        <td><button type = "button" class="btn-floating btn-small red" id = "removeceleb2"><i class="material-icons">remove</i></button></td>
-      </tr>
-      <tr>
-        <td><input type="text" name="celebselect3" id="celebselect3" tabindex="-1"></td>
-        <td><button type = "button" class="btn-floating btn-small red" id = "removeceleb3"><i class="material-icons">remove</i></button></td>
-      </tr>
-      <tr>
-        <td><input type="text" name="celebselect4" id="celebselect4" tabindex="-1"></td>
-        <td><button type = "button" class="btn-floating btn-small red" id = "removeceleb4"><i class="material-icons">remove</i></button></td>
-      </tr>
-    </tbody>
-  </table>
 
-  <label class="waves-effect waves-light btn-large"><i class="material-icons">photo_size_select_actual</i>
-    <input type="file" id ="document" name="document">
-  </label>
-  <label id = "submitButton" class="waves-effect waves-light disabled btn-floating red btn-large"><i class="material-icons">arrow_forward</i>
-    <input type="submit" name="uploadPicture">
-  </label>
+
+
+<div class="row" id = "cardsrow" style = "height: 590px">
+    <div class="col s12 m6 l2 center-align">
+      <div class="card cyan accent-4" style = "left: 10%;">
+        <div class="card-content">
+          <i id = "anonIcon0" class="material-icons large">person_add</i>
+          <div class="image-cropper">
+          <img id = "celebPicture0" src="" alt = "Avatar">
+          </div>
+            <input class = "namesCard" type="text" name="celebselect0" id="celebselect0" tabindex="-1">
+          <button type = "button" class="btn-floating btn-small red" id = "removeceleb0"><i class="material-icons">remove</i></button>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col s12 m6 l2 center-align">
+      <div class="card cyan accent-4" style = "left: 30%">
+        <div class="card-content">
+          <i id = "anonIcon1" class="material-icons large">person_add</i>
+          <div class="image-cropper">
+          <img id = "celebPicture1" src="" alt = "Avatar">
+          </div>
+            <input class = "namesCard" type="text" name="celebselect1" id="celebselect1" tabindex="-1">
+            <button type = "button" class="btn-floating btn-small red" id = "removeceleb1"><i class="material-icons">remove</i></button>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col s12 m6 l2 center-align">
+      <div class="card cyan accent-4" style = "left: 50%">
+        <div class="card-content">
+          <i id = "anonIcon2" class="material-icons large">person_add</i>
+          <div class="image-cropper">
+          <img id = "celebPicture2" src="" alt = "Avatar">
+          </div>
+            <input class = "namesCard" type="text" name="celebselect2" id="celebselect2" tabindex="-1">
+            <button type = "button" class="btn-floating btn-small red" id = "removeceleb2"><i class="material-icons">remove</i></button>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col s12 m6 l2 center-align">
+      <div class="card cyan accent-4" style = "left: 70%">
+        <div class="card-content">
+          <i id = "anonIcon3" class="material-icons large">person_add</i>
+          <div class="image-cropper">
+          <img id = "celebPicture3" src="" alt = "Avatar">
+          </div>
+            <input class = "namesCard" type="text" name="celebselect3" id="celebselect3" tabindex="-1">
+            <button type = "button" class="btn-floating btn-small red" id = "removeceleb3"><i class="material-icons">remove</i></button>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col s12 m6 l2 center-align">
+      <div class="card cyan accent-4" style = "left: 90%">
+        <div class="card-content">
+          <i id = "anonIcon4" class="material-icons large">person_add</i>
+          <div class="image-cropper">
+          <img id = "celebPicture4" src="" alt = "Avatar">
+          </div>
+            <input class = "namesCard" type="text" name="celebselect4" id="celebselect4" tabindex="-1">
+            <button type = "button" class="btn-floating btn-small red" id = "removeceleb4"><i class="material-icons">remove</i></button>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+        </div>
+      </div>
+    </div>
+
+</div>
 
 </form>
 

@@ -13,11 +13,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
           if (document.getElementById(inputBox).value == "") {
               document.getElementById(inputBox).value = name;
+
+              // css adjustments for button, pictures, and icons
               document.getElementById(button).style.visibility = "visible";
+              document.getElementById("anonIcon" + i.toString()).style.display = "none";
+              document.getElementById("celebPicture" + i.toString()).style.display = "block";
+              document.getElementById("celebPicture" + i.toString()).src = celebUrls[name]
+              document.getElementById("celebPicture" + i.toString()).style.width = '50%';
+              document.getElementById("celebPicture" + i.toString()).style.height = 'auto';
+
 
                // show submit button if theres a file and name picked or if theres two names picked
               if (i == 0 && document.getElementById("document").files.length > 0  || i == 1) {
-                document.getElementById("submitButton").className = "waves-effect waves-light btn-floating red btn-large";
+                document.getElementById("submitButton").className = "waves-effect waves-light btn-floating red btn-block";
               }
               break;
           }
@@ -25,13 +33,14 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 };
 
-
+    // this is the list of all the celebrities in celebs.txt
     var namesList = document.getElementById("celebs").innerHTML;
     namesList = namesList.split(','); // split by commas, this contains at least names and urls within the same index
-
+    celebUrls = {}
     for (var index in namesList) {
         var splitQuotes = namesList[index].split('"');
         options['data'][splitQuotes[1]] = null; //splitquotes[3] is the url
+        celebUrls[splitQuotes[1]] = splitQuotes[3];
     }
 
 
@@ -50,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 document.getElementById("document").addEventListener("input", function() {
     if (document.getElementById("document").files.length > 0 && document.getElementById("removeceleb0").style.visibility == "visible") {
-        document.getElementById("submitButton").className = "waves-effect waves-light btn-floating red btn-large";
+        document.getElementById("submitButton").className = "waves-effect waves-light btn-floating red btn-block";
     }
 });
 
@@ -75,7 +84,8 @@ document.getElementById("removeceleb4").addEventListener("click", function() {
 function removeCelebs(celebIndex) {
     document.getElementById("celebselect" + celebIndex).value = "";
     document.getElementById("removeceleb" + celebIndex).style.visibility = "hidden";
-
+    document.getElementById("celebPicture" + celebIndex).style.display = "none";
+    document.getElementById("anonIcon" + celebIndex).style.display = "block";
 
 
      if (celebIndex != "4") { // if we're dealing with indexes other than 4, we have to ensure there are no holes in the list
@@ -84,8 +94,16 @@ function removeCelebs(celebIndex) {
             indexPlusStr = (i).toString();
             if (document.getElementById("celebselect" + indexAsStr).value == "" && document.getElementById("celebselect"+ indexPlusStr).value != "") { // adjusting the list
 
+                //adjust names
                 document.getElementById("celebselect" + indexAsStr).value = document.getElementById("celebselect"+ indexPlusStr).value; // move up element up if its empty and the textbox under it isnt
                 document.getElementById("celebselect"+ indexPlusStr).value = "";
+
+                //adjust icons and pictures
+                document.getElementById("celebPicture" + indexAsStr).src = document.getElementById("celebPicture" + indexPlusStr).src;
+                document.getElementById("celebPicture" + indexPlusStr).style.display = "none";
+                document.getElementById("anonIcon" + indexAsStr).style.display = "none";
+                document.getElementById("anonIcon" + indexPlusStr).style.display = "block";
+                document.getElementById("celebPicture" + indexAsStr).style.display = "block";
 
                 // now adjust the buttons
                 document.getElementById("removeceleb" + indexAsStr).style.visibility = "visible";
@@ -96,7 +114,7 @@ function removeCelebs(celebIndex) {
 
     // hide submit button if theres no file and only one name is picked OR hide it if there are no names picked
     if (document.getElementById("document").files.length == 0 && document.getElementById("removeceleb1").style.visibility == "hidden" || document.getElementById("removeceleb0").style.visibility == "hidden") {
-        document.getElementById("submitButton").className = "waves-effect waves-light disabled btn-floating red btn-large";
+        document.getElementById("submitButton").className = "waves-effect waves-light disabled btn-floating red btn-block";
 
     }
 
