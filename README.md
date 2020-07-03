@@ -22,20 +22,11 @@ The project has users upload or take a picture. Then, they select 1-5 celebritie
 	
 	b. For those who didn't have an image, I removed them from the list
 
-3. The framework for the website is Django. No practical reason in choosing this. I simply chose it because I know Python and didn't know JavaScript.
+	c. All the celebrities have a short description from the first paragraph of their Wikipedia page too
+		
+		i. The API returned some mistakes in the description which lead to more info than the first paragraph. I filtered out most of the mistakes, but some celebs may have more than their first paragraph.
 
-4. I used Materialze as the front-end framework
+3. The framework for the website is Django. No practical reason in choosing this. I simply chose it because I know Python.
 
+4. I used Materialze to design the front-end
 
-TO DO LIST:
-
-
--add descriptions for celebs
-
--line up remove button and names
-
--fill up top left part of the screen
-
--loading bar
-
--display picture and names in result page
