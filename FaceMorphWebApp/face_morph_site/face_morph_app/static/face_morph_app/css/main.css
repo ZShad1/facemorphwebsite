@@ -22,7 +22,7 @@ label[id = "submitButton"] {
 label[id = "fileInput"] {
     position: relative;
     left: 46%;
-    top: 225px;
+    top: 175px;
     height: 100px;
     width: 150px;
     font-size: 137px;
@@ -37,10 +37,10 @@ div[id = "inputfieldrow"] {
 
 div[id = "cardsrow"] {
     position:relative;
-    top:100px;
+    top:50px;
 }
 
-p[id="celebs"] {
+p[id="celebs"], p[id="celebsDesc"] {
     font-size:0;
 }
 h2[id = "websiteheading"] {
@@ -54,10 +54,13 @@ input[name="celebselect0"],input[name="celebselect1"], input[name="celebselect2"
     pointer-events: none;
     border-bottom: none!important;
     visibility = hidden;
+
 }
 
 button[id = "removeceleb0"], button[id = "removeceleb1"], button[id = "removeceleb2"], button[id = "removeceleb3"], button[id = "removeceleb4"] {
     visibility: hidden;
+    position: relative;
+    top: -25px;
 }
 
 
@@ -72,9 +75,10 @@ img[id = "celebPicture0"], img[id = "celebPicture1"], img[id = "celebPicture2"],
 }
 
 div[class = "image-cropper"] {
-    width: 150px;
-    height: 150px;
+    height: 75%;
+    width: 95%;
     overflow: hidden;
+    position: relative;
     margin-right: auto;
     margin-left: auto;
 }
@@ -82,13 +86,42 @@ div[class = "image-cropper"] {
 input[class = "namesCard"] {
     text-align: center;
     top: 50%;
+    position: relative;
+    top: -25px;
 }
 
 div[class="card cyan accent-4"] {
-    height: 570px;
+    height: 500px;
     border-radius: 10px;
 }
 
 img[alt = "Avatar"] {
     border-radius:10px;
+    position:absolute
+    text-align:center
 }
+
+.card-content {
+    position: relative;
+    height: 500px;
+}
+
+.activator {
+    position: absolute;
+    bottom: 0;
+    left: 80%;
+
+
+}
+
+input[name = "celebURL0"], input[name = "celebURL1"], input[name = "celebURL2"], input[name = "celebURL3"], input[name = "celebURL4"] {
+     display: none
+}
+
+.materialboxed {
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;
+    top: 250px;
+}
+

@@ -96,37 +96,3 @@ for line in namesFile:
 
         newFile.write(newLine)
         newFile.write("\n")
-
-
-
-
-"""
-
-
-PARAMS = {
-    "action": "query",
-    "format": "json",
-    "titles": namesLines[randomNumber].strip("\n"),
-    #"titles": "Coldplay",
-    "prop": "pageimages",
-    "piprop": "original"
-}
-
-
-R = S.get(url=URL, params=PARAMS)
-
-DATA = R.json()
-
-#print(DATA["query"]["pages"]["80103"]["original"]["source"])
-
-x = DATA["query"]["pages"]
-
-for a in x:
-    url = (x[a]["original"]["source"])
-
-resp = urllib.request.urlopen(url)
-image = np.asarray(bytearray(resp.read()), dtype="uint8")
-image = cv2.imdecode(image, cv2.IMREAD_COLOR)
-"""
-
-

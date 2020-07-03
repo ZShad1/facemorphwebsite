@@ -8,7 +8,8 @@
 
 
 
-<p id = "celebs"> {{celebs|safe}}</p>
+  <p id = "celebs"> {{celebs|safe}}</p>
+  <p id = "celebsDesc">  {{celebsDesc|safe}} </p>
 
   <label id = "fileInput" class="waves-effect waves-light btn-large cyan accent-4"><i class="material-icons" style = "font-size: 70px">photo_size_select_actual</i>
     <input type="file" id ="document" name="document" accept = "image/x-png,image/jpeg,image/jpg">
@@ -34,20 +35,22 @@
 
 
 
-<div class="row" id = "cardsrow" style = "height: 590px">
+<div class="row" id = "cardsrow" style = "height: 500px">
     <div class="col s12 m6 l2 center-align">
       <div class="card cyan accent-4" style = "left: 10%;">
         <div class="card-content">
           <i id = "anonIcon0" class="material-icons large">person_add</i>
           <div class="image-cropper">
-          <img id = "celebPicture0" src="" alt = "Avatar">
+            <img id = "celebPicture0" src="" alt = "Avatar">
           </div>
-            <input class = "namesCard" type="text" name="celebselect0" id="celebselect0" tabindex="-1">
           <button type = "button" class="btn-floating btn-small red" id = "removeceleb0"><i class="material-icons">remove</i></button>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua.
-          </p>
+          <input class = "namesCard" type="text" name="celebselect0" id="celebselect0" tabindex="-1">
+          <input name = "celebURL0" id = "celebURL0">
+          <span class="card-title activator"><i class="material-icons right">more_horiz</i></span>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title"><i class="material-icons right">close</i></span>
+          <p id = "celebDesc0"></p>
         </div>
       </div>
     </div>
@@ -56,14 +59,16 @@
         <div class="card-content">
           <i id = "anonIcon1" class="material-icons large">person_add</i>
           <div class="image-cropper">
-          <img id = "celebPicture1" src="" alt = "Avatar">
+            <img id = "celebPicture1" src="" alt = "Avatar">
           </div>
-            <input class = "namesCard" type="text" name="celebselect1" id="celebselect1" tabindex="-1">
-            <button type = "button" class="btn-floating btn-small red" id = "removeceleb1"><i class="material-icons">remove</i></button>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua.
-          </p>
+          <button type = "button" class="btn-floating btn-small red" id = "removeceleb1"><i class="material-icons">remove</i></button>
+          <input class = "namesCard" type="text" name="celebselect1" id="celebselect1" tabindex="-1">
+          <input name = "celebURL1" id = "celebURL1">
+          <span class="card-title activator"><i class="material-icons right">more_horiz</i></span>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title"><i class="material-icons right">close</i></span>
+          <p id = "celebDesc1"></p>
         </div>
       </div>
     </div>
@@ -72,14 +77,16 @@
         <div class="card-content">
           <i id = "anonIcon2" class="material-icons large">person_add</i>
           <div class="image-cropper">
-          <img id = "celebPicture2" src="" alt = "Avatar">
+            <img id = "celebPicture2" src="" alt = "Avatar">
           </div>
-            <input class = "namesCard" type="text" name="celebselect2" id="celebselect2" tabindex="-1">
-            <button type = "button" class="btn-floating btn-small red" id = "removeceleb2"><i class="material-icons">remove</i></button>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua.
-          </p>
+          <button type = "button" class="btn-floating btn-small red" id = "removeceleb2"><i class="material-icons">remove</i></button>
+          <input class = "namesCard" type="text" name="celebselect2" id="celebselect2" tabindex="-1">
+          <input name = "celebURL2" id = "celebURL2">
+          <span class="card-title activator"><i class="material-icons right">more_horiz</i></span>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title"><i class="material-icons right">close</i></span>
+          <p id = "celebDesc2"></p>
         </div>
       </div>
     </div>
@@ -88,14 +95,16 @@
         <div class="card-content">
           <i id = "anonIcon3" class="material-icons large">person_add</i>
           <div class="image-cropper">
-          <img id = "celebPicture3" src="" alt = "Avatar">
+            <img id = "celebPicture3" src="" alt = "Avatar">
           </div>
-            <input class = "namesCard" type="text" name="celebselect3" id="celebselect3" tabindex="-1">
-            <button type = "button" class="btn-floating btn-small red" id = "removeceleb3"><i class="material-icons">remove</i></button>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua.
-          </p>
+          <button type = "button" class="btn-floating btn-small red" id = "removeceleb3"><i class="material-icons">remove</i></button>
+          <input class = "namesCard" type="text" name="celebselect3" id="celebselect3" tabindex="-1">
+          <input name = "celebURL3" id = "celebURL3">
+          <span class="card-title activator"><i class="material-icons right">more_horiz</i></span>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title"><i class="material-icons right">close</i></span>
+          <p id = "celebDesc3"></p>
         </div>
       </div>
     </div>
@@ -104,14 +113,16 @@
         <div class="card-content">
           <i id = "anonIcon4" class="material-icons large">person_add</i>
           <div class="image-cropper">
-          <img id = "celebPicture4" src="" alt = "Avatar">
+            <img id = "celebPicture4" src="" alt = "Avatar">
           </div>
-            <input class = "namesCard" type="text" name="celebselect4" id="celebselect4" tabindex="-1">
-            <button type = "button" class="btn-floating btn-small red" id = "removeceleb4"><i class="material-icons">remove</i></button>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua.
-          </p>
+          <button type = "button" class="btn-floating btn-small red" id = "removeceleb4"><i class="material-icons">remove</i></button>
+          <input class = "namesCard" type="text" name="celebselect4" id="celebselect4" tabindex="-1">
+          <input name = "celebURL4" id = "celebURL4">
+          <span class="card-title activator"><i class="material-icons right">more_horiz</i></span>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title"><i class="material-icons right">close</i></span>
+          <p id = "celebDesc4"></p>
         </div>
       </div>
     </div>

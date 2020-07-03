@@ -205,27 +205,25 @@ def warpTriangle(img1, img2, t1, t2) :
     img2[r2[1]:r2[1]+r2[3], r2[0]:r2[0]+r2[2]] = img2[r2[1]:r2[1]+r2[3], r2[0]:r2[0]+r2[2]] + img2Rect
 
 
-def run(celebNames, userPictureName):
+def run(celebDict, userPictureName, userPicture):
 
     path = "face_morph_app/images/"
 
-    images = readPictures(path,userPictureName)
+    images = []
+
+    if userPicture:
+        images = readPictures(path,userPictureName)
 
     file_path = os.path.join(os.path.dirname(__file__), "celebs.txt")
     namesFile = open(file_path,"r",encoding="utf-8")
 
-    celebsDict = {}
-
-    for line in namesFile:
-        line = line.split(":", 1)
-        celebsDict[line[0]] = line[1]
 
     # the path where the pictures are saved
 
 
-    for name in celebNames:
+    for name in celebDict:
         if name != "":
-            url = celebsDict[name]
+            url = celebDict[name]
 
             resp = urllib.request.urlopen(url)
             image = np.asarray(bytearray(resp.read()), dtype="uint8")
